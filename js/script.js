@@ -16,22 +16,21 @@ async function carregarPokemons() {
 
         loading.classList.add("d-none");
 
-        for (let i = 0; i < dados.results.length; i++) {
-
-            const pokemon = dados.results[i];
+        for (const pokemon of dados.results) {
 
             const detalhesResposta = await fetch(pokemon.url);
             const detalhes = await detalhesResposta.json();
 
             lista.innerHTML += `
-
+            
                 <div class="col-md-4 col-lg-3">
 
-                    <div class="card shadow-sm p-3 text-center">
+                    <div class="card shadow-sm p-3 text-center h-100">
 
                         <img 
                             src="${detalhes.sprites.front_default}" 
-                            class="pokemon-img"
+                            alt="${pokemon.name}"
+                            class="pokemon-img mx-auto"
                         >
 
                         <h5 class="mt-3 text-capitalize">
@@ -41,6 +40,13 @@ async function carregarPokemons() {
                         <p>
                             Número: #${detalhes.id}
                         </p>
+
+                        <a
+                            href="detalhes.html?id=${detalhes.id}"
+                            class="btn btn-primary"
+                        >
+                            Ver detalhes
+                        </a>
 
                     </div>
 
