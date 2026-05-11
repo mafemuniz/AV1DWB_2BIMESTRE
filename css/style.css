@@ -1,0 +1,19 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.card {
+    transition: 0.3s;
+    height: 100%;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.pokemon-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: auto;
+}
